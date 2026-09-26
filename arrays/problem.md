@@ -84,5 +84,7 @@ seq_numbers = [104, 4, 200, 1, 3, 2, 105, 2, 103]
 seq_numbers = [50, 51, 52, 10, 11, 12, 99]
 
 # Output: (10, 12, 3)
-# Explanation: Both [10, 11, 12] and [50, 51, 52] have length 3, so the smaller start_seq (10) wins.
-```
+
+# Explanation:
+# Both [10, 11, 12] and [50, 51, 52] have length 3,
+# so the smaller start_seq (10) wins.
