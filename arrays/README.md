@@ -1,6 +1,6 @@
 # Problem 1
 
-[solution.py](./arrays/two_sum/problem_1_solution.py)
+[solution.py](./two_sum/problem_1_solution.py)
 
 **Two Sum as a shopping problem**. 
 ### Real-life Two Sum problem
@@ -33,7 +33,7 @@ Don't think about HashMaps yet.
 
 
  # Problem 2 — Contains Duplicate
- [solution.py](./arrays/two_sum/problem_1_solution.py)
+ [solution.py](./contains_duplicate/problem_2_solution.py)
 
 
  ### 🌍 Real-life scenario: Event check-in
