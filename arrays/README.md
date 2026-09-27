@@ -122,5 +122,3 @@ nums = [1, 2, 3, 1]
 4. What Python data structure is good at answering:
     > "Have I seen this value before?"
 5. Can you describe your algorithm in **plain English**, without code?
-
- Give me your answers. I'll guide you from there without giving you the solution immediately.

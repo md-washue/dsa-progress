@@ -1,0 +1,9 @@
+1. put all ids in a list
+2. create a loop(x)
+3. create another loop(i) inside loop(x) 
+4. both loops start running at the same time. where loop(i) will start from(x+1) 
+5. checking if the x==(i) if yes true. and brake
+6. if no the loop will run 
+(x,i),(x,i+1),(x,i+2) ............
+(x+1,i),(x+1,i+1),(x+1,i+2) ............
+(x+2,i),(x+2,i+1),(x+2,i+2)................
