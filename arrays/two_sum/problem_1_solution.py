@@ -21,7 +21,7 @@
 #  Don't think about HashMaps yet.
 #  **Question:** If you were standing in the store, how would you manually find the two items?
 
-# ## The expected result is: [3, 4]
+# ## The expected result is: [0, 2],[3, 4]
 
 items=[12,25,38,20,30]
 print(items)
