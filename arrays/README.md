@@ -1,9 +1,9 @@
 # Problem 1
 
-[solution.py](./two_sum/problem_1_solution.py)
+[solution.py](./01_two_sum/problem_1_solution.py)
 
-**Two Sum as a shopping problem**. 
-### Real-life Two Sum problem
+
+## Two Sum as a shopping problem. 
 You’re at a grocery store with **RM50** to spend on exactly two items.
 The prices are:
  ```
@@ -31,12 +31,11 @@ Don't think about HashMaps yet.
 
 
 
-
  # Problem 2 — Contains Duplicate
- [solution.py](./contains_duplicate/problem_2_solution.py)
+ [solution.py](./02_contains_duplicate/problem_2_solution.py)
 
 
- ### 🌍 Real-life scenario: Event check-in
+ ## 🌍 Real-life scenario: Event check-in
 
  Imagine you're organizing a conference.
 
@@ -89,26 +88,6 @@ D410
 False
 ```
 
----
-
- ## Now translate it to a programming problem
-
- Given a list of numbers:
-
-```
-nums = [1, 2, 3, 1]
-```
-
- return `True` if **any value appears more than once**.
-
- Examples:
-
-```
-[1, 2, 3, 1]       → True
-[1, 2, 3, 4]       → False
-[1, 1]             → True
-[5, 7, 5, 9, 2]    → True
-```
 
  ### Your first thinking exercise
 
@@ -122,3 +101,145 @@ nums = [1, 2, 3, 1]
 4. What Python data structure is good at answering:
     > "Have I seen this value before?"
 5. Can you describe your algorithm in **plain English**, without code?
+
+
+
+
+# Problem 3 - Valid Anagram
+[solution.py](./03_valid_anagram/problem_3_solution.py)
+
+## Customer Support Message Matching
+
+ A customer submits a support message, but the system needs to determine whether it contains **exactly the same characters** as a previously flagged message, regardless of:
+
+ - uppercase/lowercase
+- spaces
+- punctuation
+- emojis should **count**
+- repeated characters matter
+
+ For example:
+
+```
+Message A:
+"Refund requested!!!"
+
+Message B:
+"requested refund"
+```
+
+ These should **not** match because the character counts differ once normalization rules are applied.
+
+ Your task:
+
+ > Write a function that determines whether two customer messages are character-anagrams after removing spaces and punctuation and converting letters to lowercase.
+
+ Example:
+
+```
+is_same_message(
+    "Dormitory!",
+    "Dirty room"
+)
+```
+
+ Expected:
+
+```
+True
+```
+
+ ### Think before coding
+
+ Ask yourself:
+
+ 1. What exactly should be removed?
+2. What should happen to repeated characters?
+3. What information do I need to remember while processing the first message?
+4. Can I solve it in one pass?
+5. What's the time and space complexity?
+
+---
+
+
+# Problem 4 - Valid Anagram
+[solution.py](./03_valid_anagram/problem_4_solution.py)
+
+
+ ## Warehouse Inventory Reconciliation
+
+ You're building software for a warehouse.
+
+ Two inventory systems produce lists of product IDs for the same shipment. The order doesn't matter, but **the number of times each product appears does**.
+
+ For example:
+
+```
+system_a = [
+    "SKU-101",
+    "SKU-205",
+    "SKU-101",
+    "SKU-300",
+    "SKU-205"
+]
+
+system_b = [
+    "SKU-205",
+    "SKU-101",
+    "SKU-205",
+    "SKU-300",
+    "SKU-101"
+]
+```
+
+ These represent the same shipment:
+
+```
+True
+```
+
+ But:
+
+```
+system_b = [
+    "SKU-205",
+    "SKU-101",
+    "SKU-300",
+    "SKU-300",
+    "SKU-101"
+]
+```
+
+ should produce:
+
+```
+False
+```
+
+ because `SKU-300` appears twice instead of once, while `SKU-205` is missing.
+
+ ### Your challenge
+
+ Implement:
+
+```
+def same_inventory(system_a, system_b):
+    ...
+```
+
+ **Do not sort the lists.**
+
+ Try to discover the data structure that lets you answer:
+
+ > "How many times have I seen this product?"
+
+ ### Extra challenge
+
+ Can you make it work with:
+
+ - 10 million product IDs
+- without creating a second copy of either entire list
+- in **O(n)** time?
+
+---
+
