@@ -243,3 +243,219 @@ def same_inventory(system_a, system_b):
 
 ---
 
+
+
+# Problem 5 — Group Anagrams
+
+[solution.py](./04_group_anagrams/solution.py)
+
+## 🍜 Real-life scenario: Restaurant order consolidation
+
+You run the backend system for a food-delivery company.
+
+During a busy dinner period, customers place orders through different devices. Because of a synchronization bug, the same set of dishes can arrive in different orders.
+
+For example:
+
+```python
+["rice", "chicken", "egg"]
+["egg", "rice", "chicken"]
+["chicken", "egg", "rice"]
+````
+
+ These are actually the **same combination of dishes**.
+
+ Your job is to group orders that contain exactly the same items, regardless of their order.
+
+ For example:
+
+```
+orders = [
+    ["rice", "chicken", "egg"],
+    ["pizza", "cola"],
+    ["egg", "rice", "chicken"],
+    ["cola", "pizza"],
+    ["burger"],
+    ["chicken", "egg", "rice"]
+]
+```
+
+ The system should group them like this:
+
+```
+[
+    [
+        ["rice", "chicken", "egg"],
+        ["egg", "rice", "chicken"],
+        ["chicken", "egg", "rice"]
+    ],
+    [
+        ["pizza", "cola"],
+        ["cola", "pizza"]
+    ],
+    [
+        ["burger"]
+    ]
+]
+```
+
+ The order of the groups does not matter.
+
+ The order of the orders inside each group also does not matter.
+
+ ## Your programming version
+
+ Implement:
+
+```
+def group_orders(orders):
+    ...
+```
+
+ Each order is a list of dish names.
+
+ For example:
+
+```
+orders = [
+    ["rice", "chicken", "egg"],
+    ["pizza", "cola"],
+    ["egg", "rice", "chicken"],
+    ["cola", "pizza"],
+    ["burger"],
+    ["chicken", "egg", "rice"]
+]
+```
+
+ Your function should return groups of orders containing the same dishes.
+
+ ## ⚠️ Important complication
+
+ A dish can appear **more than once** in an order.
+
+ For example:
+
+```
+["rice", "egg", "egg"]
+```
+
+ and:
+
+```
+["egg", "rice", "egg"]
+```
+
+ belong together.
+
+ But:
+
+```
+["rice", "egg"]
+```
+
+ does not belong in that group.
+
+ So you cannot simply ask:
+
+ > "Which dishes are present?"
+
+ You also need to care about:
+
+ > "How many times does each dish appear?"
+
+ ## Think before coding
+
+ **Don't write Python yet.**
+
+ Answer these questions:
+
+ 1. If you solved this by brute force, how would you determine whether two orders belong to the same group?
+2. Why would comparing every order with every other order become expensive?
+3. What makes these two orders equivalent?
+
+```
+["rice", "chicken", "egg"]
+
+["egg", "rice", "chicken"]
+```
+
+ 4. If the order of dishes doesn't matter, how could you create some kind of **identity** or **signature** for an order?
+5. What happens if you simply use a `set` of dishes?
+
+ Would this incorrectly treat these as equal?
+
+```
+["egg", "egg", "rice"]
+
+["egg", "rice"]
+```
+
+ 6. What information must your signature preserve?
+7. Imagine you process the orders from left to right. What information should you remember so that you can immediately find the correct group for the next order?
+8. What Python data structure could map:
+
+```
+"same order signature"
+        ↓
+"all orders with that signature"
+```
+
+ 9. Can you describe your complete algorithm in **plain English**, without writing Python?
+10. Only after that: what is the time and space complexity?
+
+ 
+
+ ## 🔥 Extra challenge
+
+ Suppose there are:
+
+```
+10 million orders
+```
+
+ and each order contains up to:
+
+```
+100 dishes
+```
+
+ You want to avoid repeatedly comparing an order against every existing group.
+
+ Can you design a solution where each order is processed independently and then placed into its group using a lookup?
+
+ Before coding, write:
+
+```
+Approach:
+...
+
+Key observation:
+...
+
+Data structure:
+...
+
+Why it works:
+...
+
+Time complexity:
+...
+
+Space complexity:
+...
+
+Pseudocode:
+...
+```
+
+ **Do not look up the Group Anagrams solution yet.**
+
+ Your goal is not to remember the LeetCode solution.
+
+ Your goal is to discover:
+
+ > **"I need a canonical representation for each order, then use that representation to group equivalent orders."**
+
+```
+
+```
