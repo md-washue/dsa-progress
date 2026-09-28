@@ -247,7 +247,7 @@ def same_inventory(system_a, system_b):
 
 # Problem 5 — Group Anagrams
 
-[solution.py](./04_group_anagrams/solution.py)
+[solution.py](./04_group_anagrams/problem_5_solution.py)
 
 ## 🍜 Real-life scenario: Restaurant order consolidation
 
@@ -446,22 +446,16 @@ Space complexity:
 
 Pseudocode:
 ...
-```
-
- **Do not look up the Group Anagrams solution yet.**
-
- Your goal is not to remember the LeetCode solution.
-
- Your goal is to discover:
-
- > **"I need a canonical representation for each order, then use that representation to group equivalent orders."**
-
-```
 
 
 
 
-# Problem 5 — Best Time to Buy and Sell Stock
+
+
+
+
+
+# Problem 6 — Best Time to Buy and Sell Stock
 
 [solution.py](./05_best_time_to_buy_sell_stock/problem_6_solution.py)
 
@@ -810,6 +804,712 @@ Day    Price    Cheapest seen so far    Profit if sold today    Best profit
  Your goal is to discover the reasoning pattern:
 
  > **"Keep the best buying opportunity seen so far, calculate today's possible profit, and keep the best profit found so far."**
+
+
+
+
+
+````
+# Day 7 — Mixed Problem 
+
+
+## 🚚 Real-life scenario: Delivery route monitoring
+
+You work on the backend system for a food-delivery company.
+
+Every delivery driver sends their GPS location to the system as they travel.
+
+For one driver, the system records the number of kilometers from the restaurant at each checkpoint:
+
+```python
+distances = [2, 5, 3, 7, 8, 4, 9]
+````
+
+ Each number represents the driver's distance from the restaurant at a particular checkpoint.
+
+ You want to detect whether the driver ever moved **back toward the restaurant after reaching a farther point**.
+
+ For example:
+
+```
+2 → 5 → 3
+```
+
+ The driver first reached:
+
+```
+5 km
+```
+
+ but then moved back to:
+
+```
+3 km
+```
+
+ So the route contains a decrease.
+
+ For:
+
+```
+distances = [2, 5, 3, 7, 8, 4, 9]
+```
+
+ the answer should be:
+
+```
+True
+```
+
+ because the distance decreased several times:
+
+```
+5 → 3
+8 → 4
+```
+
+ But:
+
+```
+distances = [2, 3, 5, 6, 8, 10]
+```
+
+ should return:
+
+```
+False
+```
+
+ because the distance never decreases.
+
+---
+
+ ## Your programming version
+
+ Implement:
+
+```
+def route_moved_backward(distances):
+    ...
+```
+
+ Example:
+
+```
+distances = [2, 5, 3, 7, 8, 4, 9]
+```
+
+ Expected:
+
+```
+True
+```
+
+---
+
+ ## ⚠️ Important complication
+
+ You are not looking for the **largest distance**.
+
+ You are looking for whether a value is smaller than the value immediately before it.
+
+ For example:
+
+```
+distances = [2, 10, 3]
+```
+
+ The answer is:
+
+```
+True
+```
+
+ because:
+
+```
+10 → 3
+```
+
+ is a decrease.
+
+ But:
+
+```
+distances = [10, 2, 3]
+```
+
+ also returns:
+
+```
+True
+```
+
+ because:
+
+```
+10 → 2
+```
+
+ is a decrease.
+
+---
+
+ # Think before coding
+
+ Don't write Python yet.
+
+ Answer these questions:
+
+ 1. If you manually checked the route, what would you compare?
+2. Do you need to compare every distance with every other distance?
+3. If you are currently looking at:
+
+```
+5
+```
+
+ what previous information do you need?
+
+ 4. What happens when the current distance is smaller than the previous distance?
+5. Can you solve this by processing the list from left to right?
+6. What is the minimum amount of information you need to remember?
+7. Can you describe the algorithm in plain English?
+8. What is the time complexity?
+9. What is the space complexity?
+
+---
+
+ # 🧠 Don't assume the pattern
+
+ This is your first **mixed problem**.
+
+ You have already studied:
+
+ - Arrays
+- Hash Maps
+- Sets
+- Frequency counting
+- Lookup/complement
+- Duplicates
+- Grouping
+- Basic one-pass algorithms
+
+ But this problem may not require a `dict` or `set`.
+
+ That's intentional.
+
+ Your job is to determine:
+
+ > **What information does the problem actually require?**
+
+ Don't choose a data structure just because you learned it this week.
+
+---
+
+ # 🔥 Harder challenge
+
+ Suppose the delivery system records:
+
+```
+distances = [2, 5, 5, 7, 7, 8, 10]
+```
+
+ Should this return:
+
+```
+True
+```
+
+ or:
+
+```
+False
+```
+
+ ?
+
+ Remember:
+
+```
+2 → 5
+5 → 5
+5 → 7
+7 → 7
+7 → 8
+8 → 10
+```
+
+ There is no decrease.
+
+ So the answer should be:
+
+```
+False
+```
+
+ Now consider:
+
+```
+distances = [10, 8, 8, 5]
+```
+
+ The answer should be:
+
+```
+True
+```
+
+ because:
+
+```
+10 → 8
+8 → 8
+8 → 5
+```
+
+ contains decreases.
+
+---
+
+ # 🎯 Weekly Review
+
+ After solving the mixed problem, **do not immediately move on**.
+
+ Spend some time reviewing the problems you worked on this week.
+
+ Your goal is not to remember the code.
+
+ Your goal is to see whether you can recognize the underlying patterns.
+
+---
+
+ ## Problem 1 — Two Sum
+
+ Think about:
+
+```
+prices = [12, 25, 38, 20, 30]
+target = 50
+```
+
+ Without looking at your old solution, answer:
+
+```
+What was the brute-force approach?
+
+...
+
+What repeated work did we eliminate?
+
+...
+
+What information did we remember?
+
+...
+
+What data structure helped?
+
+...
+
+What was the key observation?
+
+...
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ## Problem 2 — Contains Duplicate
+
+ Think about:
+
+```
+ids = ["A102", "B305", "C201", "A102"]
+```
+
+ Answer:
+
+```
+What question did we repeatedly need to answer?
+
+...
+
+What information did we remember?
+
+...
+
+What data structure helped?
+
+...
+
+Why is the solution better than comparing every pair?
+
+...
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ## Problem 3 — Valid Anagram
+
+ Think about:
+
+```
+"Dormitory"
+"Dirty room"
+```
+
+ Answer:
+
+```
+What makes two inputs equivalent?
+
+...
+
+Why does order not matter?
+
+...
+
+Why do character counts matter?
+
+...
+
+What information needs to be preserved?
+
+...
+
+What data structure can represent that information?
+
+...
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ## Problem 4 — Group Anagrams
+
+ Think about:
+
+```
+[
+    ["rice", "chicken", "egg"],
+    ["egg", "rice", "chicken"],
+    ["pizza", "cola"]
+]
+```
+
+ Answer:
+
+```
+What makes two orders belong to the same group?
+
+...
+
+What must the signature preserve?
+
+...
+
+Why isn't a simple set enough?
+
+...
+
+What does the key represent?
+
+...
+
+What data structure maps a signature to a group?
+
+...
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ## Problem 5 — Best Time to Buy and Sell Stock
+
+ Think about:
+
+```
+prices = [7, 1, 5, 3, 6, 4]
+```
+
+ Answer:
+
+```
+What information from the past matters?
+
+...
+
+Why can't we simply find the global minimum and maximum?
+
+...
+
+What does the current price tell us?
+
+...
+
+What should we keep track of?
+
+...
+
+Why can this be solved in one pass?
+
+...
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ # 🧠 Pattern Recognition Test
+
+ Now close your notes.
+
+ For each situation, identify the pattern **before thinking about code**.
+
+ ### Situation 1
+
+```
+"Have I seen this value before?"
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ### Situation 2
+
+```
+"I need the value that completes my target."
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ### Situation 3
+
+```
+"These objects contain the same elements,
+but their order doesn't matter."
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ### Situation 4
+
+```
+"I need to know how many times each value appears."
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ### Situation 5
+
+```
+"I need the best result so far while scanning
+the data from left to right."
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ ### Situation 6
+
+```
+"The current value needs to be compared with
+something immediately before it."
+```
+
+ Pattern:
+
+```
+?
+```
+
+---
+
+ # 🔥 Final Challenge — No Code
+
+ Imagine someone gives you a completely new problem tomorrow.
+
+ Before touching your editor, write:
+
+```
+1. What is being asked?
+   ...
+
+2. What would brute force do?
+   ...
+
+3. Why is brute force inefficient?
+   ...
+
+4. What repeated work can I eliminate?
+   ...
+
+5. What information should I maintain?
+   ...
+
+6. What data structure might help?
+   ...
+
+7. What is the underlying pattern?
+   ...
+
+8. What is the algorithm in English?
+   ...
+
+9. What is the complexity?
+   ...
+
+10. Now I can code.
+```
+
+ This is the habit you are trying to build.
+
+---
+
+ # 📊 Week 1 Review
+
+ Fill this out honestly.
+
+ | Problem | Pattern Recognized? | Solved Alone | Needed Hint | Needed Solution | Re-solved |
+| --- | --- | --- | --- | --- | --- |
+| Two Sum | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| Contains Duplicate | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| Valid Anagram | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| Group Anagrams | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| Best Time to Buy/Sell Stock | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| Mixed Problem | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+
+---
+
+ # 📝 Weekly Reflection
+
+ Don't just write:
+
+```
+"I solved 6 problems."
+```
+
+ Instead answer:
+
+```
+## What I can recognize now
+
+...
+
+## What still feels difficult
+
+...
+
+## Which problem did I understand best?
+
+...
+
+## Which problem did I mostly memorize?
+
+...
+
+## Which pattern do I confuse with another pattern?
+
+...
+
+## Where do I still get stuck?
+
+...
+
+## What should I review next week?
+
+...
+```
+
+---
+
+ # 🎯 Week 1 Success Criteria
+
+ You don't need to have solved everything independently.
+
+ The goal is to be able to do this:
+
+```
+Problem
+   ↓
+Understand the situation
+   ↓
+Identify what is being asked
+   ↓
+Think of brute force
+   ↓
+Find repeated work
+   ↓
+Identify useful information
+   ↓
+Recognize a pattern
+   ↓
+Choose a data structure
+   ↓
+Describe the algorithm
+   ↓
+Code
+```
+
+ The biggest question at the end of Week 1 is:
+
+ > **Am I becoming better at discovering the algorithm, or am I just becoming better at remembering solutions?**
+
+ If you can explain **why** your solution works before writing the code, you're making the progress we're looking for.
 
 ```
 
