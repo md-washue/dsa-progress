@@ -53,8 +53,9 @@ def find_anagram (message_1,message_2):
     message_1=sorted(message_1)
     message_2=sorted(message_2)
 
-    print(f"This is the final message_1 {message_1}")
-    print(f"This is the final message_2 {message_2}")
+    #if_the_real_output_is_needed
+    # print(f"This is the final message_1 {message_1}")
+    # print(f"This is the final message_2 {message_2}")
 
     return(message_1 == message_2)
 
