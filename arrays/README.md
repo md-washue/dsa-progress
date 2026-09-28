@@ -458,4 +458,359 @@ Pseudocode:
 
 ```
 
+
+
+
+# Problem 5 — Best Time to Buy and Sell Stock
+
+[solution.py](./05_best_time_to_buy_sell_stock/problem_6_solution.py)
+
+## 💰 Real-life scenario: Buying and selling concert tickets
+
+You run a ticket-resale business.
+
+Every morning, you record the price of a concert ticket.
+
+For example:
+
+```python
+prices = [120, 95, 80, 110, 150, 130, 170]
+````
+
+ The prices represent the ticket price on each day:
+
+```
+Day 0 → RM120
+Day 1 → RM95
+Day 2 → RM80
+Day 3 → RM110
+Day 4 → RM150
+Day 5 → RM130
+Day 6 → RM170
+```
+
+ You are allowed to:
+
+ 1. Buy **one** ticket.
+2. Sell that ticket **once**.
+3. You must buy before you sell.
+
+ Your goal is to make the **maximum possible profit**.
+
+ For example:
+
+```
+Buy on Day 2 → RM80
+Sell on Day 6 → RM170
+
+Profit = RM170 - RM80
+       = RM90
+```
+
+ So the maximum profit is:
+
+```
+RM90
+```
+
+---
+
+ ## Your programming version
+
+ Implement:
+
+```
+def max_profit(prices):
+    ...
+```
+
+ For example:
+
+```
+prices = [120, 95, 80, 110, 150, 130, 170]
+```
+
+ Your function should return:
+
+```
+90
+```
+
+ because:
+
+```
+Buy:  RM80
+Sell: RM170
+Profit: RM90
+```
+
+---
+
+ ## ⚠️ Important complication
+
+ You cannot travel backward in time.
+
+ For example:
+
+```
+prices = [200, 150, 100, 80, 50]
+```
+
+ You might notice:
+
+```
+RM200 → RM50
+```
+
+ and think:
+
+```
+RM200 - RM50 = RM150
+```
+
+ But that would require you to:
+
+```
+Sell at RM200
+then
+Buy at RM50
+```
+
+ which violates the rules.
+
+ You must always:
+
+```
+BUY
+ ↓
+SELL
+```
+
+ So the answer for:
+
+```
+prices = [200, 150, 100, 80, 50]
+```
+
+ is:
+
+```
+0
+```
+
+ because there is no profitable transaction.
+
+---
+
+ ## Think before coding
+
+ **Don't write Python yet.**
+
+ Answer these questions:
+
+ 1. If you solved this by brute force, what would you try?
+2. If you wanted to check every possible transaction, how many pairs might you have to examine?
+3. What makes a transaction valid?
+
+ For example:
+
+```
+Day 2 → Day 6
+```
+
+ is valid, but:
+
+```
+Day 6 → Day 2
+```
+
+ is not.
+
+ 4. While moving from left to right through the prices, what information from the past would be useful?
+5. Suppose you are currently looking at:
+
+```
+Day 5 → RM130
+```
+
+ What would you want to know about the previous days?
+
+ 6. If you have already seen:
+
+```
+RM120
+RM95
+RM80
+RM110
+RM150
+```
+
+ which previous price would be most interesting when today's price is:
+
+```
+RM130
+```
+
+ And why?
+
+ 7. Do you actually need to remember **every previous price**, or is there some smaller piece of information that summarizes what you need?
+8. Imagine you process prices from left to right.
+
+ What information should you maintain so that, when you see today's price, you can immediately calculate the best possible profit ending today?
+
+ 9. Can you describe your complete algorithm in **plain English**, without writing Python?
+10. Only after that: what is the time and space complexity?
+
+---
+
+ ## 🧠 Harder challenge
+
+ Don't immediately think:
+
+ > "Find the largest number and subtract the smallest number."
+
+ That isn't always correct.
+
+ Consider:
+
+```
+prices = [100, 180, 60, 200]
+```
+
+ The smallest price is:
+
+```
+RM60
+```
+
+ and the largest price is:
+
+```
+RM200
+```
+
+ But you cannot buy at RM60 and somehow use a price from before it.
+
+ The correct transaction is:
+
+```
+Buy  → RM100
+Sell → RM200
+
+Profit = RM100
+```
+
+ So ask yourself:
+
+ > **How can I keep track of the cheapest valid buying opportunity seen so far?**
+
+ Then ask:
+
+ > **When I see today's price, what profit would I make if I sold today?**
+
+ And finally:
+
+ > **How do I remember the best profit I've seen so far?**
+
+---
+
+ ## 🔥 Extra challenge
+
+ Suppose there are:
+
+```
+10 million price records
+```
+
+ and you need to process them efficiently.
+
+ You are not allowed to repeatedly compare every price with every other price.
+
+ Can you design a solution where you process each price **once**?
+
+ Try to discover what you need to maintain:
+
+```
+Information from the past
+        ↓
+Today's price
+        ↓
+Potential profit
+        ↓
+Best profit so far
+```
+
+ Before coding, write:
+
+```
+Approach:
+...
+
+Key observation:
+...
+
+Information I need to remember:
+...
+
+Data structure / variables:
+...
+
+Why it works:
+...
+
+Time complexity:
+...
+
+Space complexity:
+...
+
+Pseudocode:
+...
+```
+
+---
+
+ ## 🎯 Final thinking exercise
+
+ Imagine you are manually looking at this:
+
+```
+prices = [7, 1, 5, 3, 6, 4]
+```
+
+ Walk through it one price at a time.
+
+ Create a table like:
+
+```
+Day    Price    Cheapest seen so far    Profit if sold today    Best profit
+---    -----    --------------------    ---------------------    -----------
+0       7              ?                        ?                    ?
+1       1              ?                        ?                    ?
+2       5              ?                        ?                    ?
+3       3              ?                        ?                    ?
+4       6              ?                        ?                    ?
+5       4              ?                        ?                    ?
+```
+
+ Fill in the table **before writing any code**.
+
+ Then ask yourself:
+
+ > **What does each column represent?**
+
+ If you can explain that clearly, you are very close to discovering the algorithm.
+
+ **Do not look up the Best Time to Buy and Sell Stock solution yet.**
+
+ Your goal is not to remember:
+
+ > "Use this exact code."
+
+ Your goal is to discover the reasoning pattern:
+
+ > **"Keep the best buying opportunity seen so far, calculate today's possible profit, and keep the best profit found so far."**
+
+```
+
 ```
