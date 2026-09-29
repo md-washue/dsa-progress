@@ -15,7 +15,7 @@ def max_profit(prices):
     return best_profit
 
 
-prices = [120, 95, 80, 110, 150, 130, 170]
+prices = [120,95,80,110,150,130,170]
 
 print(max_profit(prices))
 
