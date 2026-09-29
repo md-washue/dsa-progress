@@ -261,7 +261,7 @@ For example:
 ["rice", "chicken", "egg"]
 ["egg", "rice", "chicken"]
 ["chicken", "egg", "rice"]
-````
+```
 
  These are actually the **same combination of dishes**.
 
@@ -394,34 +394,7 @@ orders = [
 7. Imagine you process the orders from left to right. What information should you remember so that you can immediately find the correct group for the next order?
 8. What Python data structure could map:
 
-```
-"same order signature"
-        ↓
-"all orders with that signature"
-```
 
- 9. Can you describe your complete algorithm in **plain English**, without writing Python?
-10. Only after that: what is the time and space complexity?
-
- 
-
- ## 🔥 Extra challenge
-
- Suppose there are:
-
-```
-10 million orders
-```
-
- and each order contains up to:
-
-```
-100 dishes
-
-
- You want to avoid repeatedly comparing an order against every existing group.
-
- Can you design a solution where each order is processed independently and then placed into its group using a lookup?
 
 
 
@@ -445,7 +418,7 @@ For example:
 
 ```python
 prices = [120, 95, 80, 110, 150, 130, 170]
-````
+```
 
  The prices represent the ticket price on each day:
 
@@ -785,7 +758,7 @@ Day    Price    Cheapest seen so far    Profit if sold today    Best profit
 
 
 
-````
+
 # Day 7 — Mixed Problem 
 
 
@@ -799,7 +772,7 @@ For one driver, the system records the number of kilometers from the restaurant 
 
 ```python
 distances = [2, 5, 3, 7, 8, 4, 9]
-````
+```
 
  Each number represents the driver's distance from the restaurant at a particular checkpoint.
 
