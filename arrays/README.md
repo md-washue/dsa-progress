@@ -417,35 +417,11 @@ orders = [
 
 ```
 100 dishes
-```
+
 
  You want to avoid repeatedly comparing an order against every existing group.
 
  Can you design a solution where each order is processed independently and then placed into its group using a lookup?
-
- Before coding, write:
-
-```
-Approach:
-...
-
-Key observation:
-...
-
-Data structure:
-...
-
-Why it works:
-...
-
-Time complexity:
-...
-
-Space complexity:
-...
-
-Pseudocode:
-...
 
 
 
