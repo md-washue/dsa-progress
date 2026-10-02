@@ -6,7 +6,7 @@ Solve 30 problems where I can explain the approach before writing the code.
 ## Progress by Pattern
 | Pattern | Problems | 🟢 Solved Alone | 🟡 Needed Hint | 🟠 Needed Guidance | 🔴 Needed Solution |
 |---|---|---|---|---|---|
-| Arrays | 0 | 0 | 0 | 0 | 0 |
+| Arrays | 7 | 5 | 1 | 1 | 0 |
 | Hashing | 0 | 0 | 0 | 0 | 0 |
 | Two Pointers | 0 | 0 | 0 | 0 | 0 |
 | Sliding Window | 0 | 0 | 0 | 0 | 0 |
@@ -17,6 +17,3 @@ Solve 30 problems where I can explain the approach before writing the code.
 | Graphs | 0 | 0 | 0 | 0 | 0 |
 | Dynamic Programming | 0 | 0 | 0 | 0 | 0 |
 
-## Thinking Tracker
-| Problem | Pattern Recognized? | Initial Idea | Hint? | Solution? | Re-solved? |
-|---|---|---|---|---|---|
