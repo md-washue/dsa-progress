@@ -341,33 +341,9 @@ nums = [-4, -1, -1, 0, 1, 2]
 
  Try to discover this progression:
 
-```
-3 numbers
-    ↓
-fix one number
-    ↓
-find two numbers
-    ↓
-Two Sum
-    ↓
-Two Pointers
-```
-
 ---
 
- ## 🔥 Important lesson
 
- Don't memorize:
-
- > "3Sum = sorting + two pointers."
-
- Instead understand:
-
- > **"I can reduce a bigger problem into a smaller problem I already understand."**
-
- That's much more valuable.
-
----
 
  # Day 4 — Maximum Profit
 
