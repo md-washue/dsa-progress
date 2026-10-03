@@ -318,30 +318,7 @@ nums = [-4, -1, -1, 0, 1, 2]
 
  The order of the combinations does not matter.
 
----
 
- ## Think before coding
-
- Don't jump directly to three nested loops.
-
- Start with brute force.
-
- Ask:
-
- 1. How would you check every possible combination?
-2. What would the complexity be?
-3. Is there repeated work?
-4. What if you sorted the array first?
-5. Suppose you choose the first number.
-6. What problem remains?
-7. Does the remaining problem look familiar?
-8. Can the two-pointer technique from Day 2 help?
-9. How do you avoid returning the same combination multiple times?
-10. Why does sorting help with duplicates?
-
- Try to discover this progression:
-
----
 
 
 
@@ -351,29 +328,38 @@ nums = [-4, -1, -1, 0, 1, 2]
 
 [solution.py](./04_Introduction_to_maintaining_a_range/problem_4_solution.py)
 
- ## 💰 Real-life scenario: Concert ticket resale
 
- You record the price of a concert ticket every day:
+ ## 📈 Real-life scenario: Buying and selling stocks
+
+ You are building a system that analyzes the daily price of a company's stock.
+
+ You are given the stock price for each day:
 
 ```
-prices = [120, 95, 80, 110, 150, 130, 170]
+prices = [7, 1, 5, 3, 6, 4]
 ```
 
- You can:
+ You may:
 
- 1. Buy once.
-2. Sell once.
-3. You must buy before selling.
+ - buy the stock **once**
+- sell the stock **once**
+- you must **buy before you sell**
 
- Your goal is to find the maximum possible profit.
+ Your goal is to find the **maximum possible profit**.
 
  For example:
 
 ```
-Buy:  RM80
-Sell: RM170
+Buy at:  1
+Sell at: 6
 
-Profit = RM90
+Profit = 6 - 1 = 5
+```
+
+ So the answer is:
+
+```
+5
 ```
 
 ---
@@ -390,48 +376,209 @@ def max_profit(prices):
  Example:
 
 ```
-prices = [120, 95, 80, 110, 150, 130, 170]
+prices = [7, 1, 5, 3, 6, 4]
 ```
 
  Expected:
 
 ```
-90
+5
 ```
+
+ Another example:
+
+```
+prices = [7, 6, 4, 3, 1]
+```
+
+ Expected:
+
+```
+0
+```
+
+ Because there is no profitable transaction.
+
+---
+
+ ## ⚠️ Important rule
+
+ You cannot sell before you buy.
+
+ For:
+
+```
+prices = [7, 1, 5]
+```
+
+ You cannot do:
+
+```
+5 - 7
+```
+
+ because that would mean selling before buying.
+
+ Your buy day must always be **before** your sell day.
 
 ---
 
  ## Think before coding
 
- 1. What would brute force do?
-2. How many possible buy/sell combinations are there?
-3. Why can't you simply find the smallest and largest numbers?
-4. Why is this invalid?
+ Don't write Python yet.
+
+ Answer these questions first:
+
+ 1. If you knew the selling price today, what information from previous days would you need?
+2. Do you really need to remember every previous price?
+3. What is the most useful piece of information to maintain as you move from left to right?
+4. If today's price is higher than the lowest price you've seen, what can you calculate?
+5. What should happen if today's price is lower than your current minimum?
+6. Should you update the best profit when you find a cheaper buying price?
+7. Or should you update it when you find a better selling opportunity?
+8. Can you solve this by looking at each price only once?
+9. What variables would you need to maintain?
+10. What is the time complexity?
+
+---
+
+ ## 🧠 Think in terms of a range
+
+ Imagine scanning the prices from left to right:
 
 ```
-[200, 100, 50, 300]
+[7, 1, 5, 3, 6, 4]
+       ↑        ↑
+      buy     sell
 ```
 
- 5. While moving from left to right, what information about the past matters?
-6. When you see today's price, what previous price would you most like to know?
-7. Do you really need to remember every previous price?
-8. Can you keep only the cheapest valid price so far?
-9. How would you calculate today's possible profit?
-10. How would you remember the best profit?
-
- Try to discover:
+ At every point, ask:
 
 ```
-past prices
-     ↓
-cheapest price so far
-     ↓
-today's price
-     ↓
-today's profit
-     ↓
-best profit so far
+What is the cheapest price I've seen so far?
+
+What profit would I make if I sold today?
 ```
+
+ For example:
+
+```
+price = 5
+
+minimum so far = 1
+
+possible profit = 5 - 1
+                = 4
+```
+
+ Then:
+
+```
+price = 6
+
+minimum so far = 1
+
+possible profit = 6 - 1
+                = 5
+```
+
+ So the best profit becomes:
+
+```
+5
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
@@ -770,185 +917,90 @@ window valid
 
 [solution.py](./07_Mixed_pattern-recognition_problem/problem_7_solution.py)
 
- ## 🚚 Real-life scenario: Delivery route monitoring
+ # Day 7 — Mixed Problem
 
- You work on the backend system for a food-delivery company.
+### Problem 7
 
- A driver's GPS system records the driver's distance from the restaurant at each checkpoint:
+[solution.py](./07_Mixed_pattern-recognition_problem/problem_7_solution.py)
 
-```
-distances = [2, 5, 3, 7, 8, 4, 9]
-```
+## 🏭 Real-life scenario: Smart Factory Sensor Analysis
 
- You want to detect whether the driver ever moved **back toward the restaurant**.
+A factory monitors the temperature of its machines every minute.
 
- For example:
+You are given:
 
-```
-2 → 5 → 3
-```
+temperature = [4, 2, 2, 3, 5, 2, 2, 4, 3]
 
- The driver reached:
+Each number represents the temperature recorded at one minute.
 
-```
-5 km
-```
+The factory wants to identify the longest continuous period of readings
+that can be considered "stable".
 
- and then moved back to:
+A stable period must satisfy several conditions.
 
-```
-3 km
-```
+### Rules
 
- So the answer is:
+1. The temperature difference between the hottest and coldest reading
+   must be at most `limit`.
 
-```
-True
-```
+2. No temperature may appear more than `maxFreq` times.
+
+3. You are allowed to remove at most one reading from the period.
+
+4. After removing that reading, the remaining period must satisfy
+   all the stability rules.
+
+Your task is to find the maximum length of the original continuous
+period that can be made stable.
 
 ---
 
- ## Your programming version
+## Your programming version
 
- Implement:
+Implement:
 
-```
-def route_moved_backward(distances):
+def longest_stable_period(temperature, limit, maxFreq):
     ...
-```
 
- Example:
+Example:
 
-```
-distances = [2, 5, 3, 7, 8, 4, 9]
-```
+temperature = [4, 2, 2, 3, 5, 2, 2, 4, 3]
+limit = 3
+maxFreq = 2
 
- Expected:
+Expected:
 
-```
-True
-```
-
- But:
-
-```
-distances = [2, 3, 5, 6, 8, 10]
-```
-
- should return:
-
-```
-False
-```
-
----
-
- ## ⚠️ Important complication
-
- You are **not** looking for the largest distance.
-
- You're checking whether the current value is smaller than the value immediately before it.
-
- For example:
-
-```
-[2, 10, 3]
-```
-
- returns:
-
-```
-True
-```
-
- because:
-
-```
-10 → 3
-```
-
- is a decrease.
-
- And:
-
-```
-[10, 2, 3]
-```
-
- also returns:
-
-```
-True
-```
-
- because:
-
-```
-10 → 2
-```
-
- is a decrease.
-
----
-
- ## Think before coding
-
- This is your **mixed problem**.
-
- I don't want to tell you the pattern.
-
- Ask yourself:
-
- 1. What exactly am I looking for?
-2. Does the problem involve a contiguous range?
-3. Do I need two pointers?
-4. Do I need a sliding window?
-5. Do I need a HashMap?
-6. Do I need to remember everything I've seen?
-7. Or do I only need a small amount of information from the previous position?
-8. What would brute force look like?
-9. Can I solve it with one pass?
-10. What is the complexity?
-
- The important part is **not the difficulty of this problem**.
-
- The important part is that you decide:
-
- > **What pattern does this problem require?**
-
- before writing code.
-
----
+???
 
 
+## Think before coding
 
- > "I solved 7 problems."
+Don't write Python yet.
 
- Measure yourself by:
+Answer these questions first:
 
- > **"When I see a new problem, can I explain what information I need to maintain before I write code?"**
+1. What exactly is the "window" in this problem?
 
- By Day 7, I want your thought process to start becoming:
+2. Is the window fixed-size or variable-size?
 
-```
-New problem
-     ↓
-What is being asked?
-     ↓
-What does brute force do?
-     ↓
-What work repeats?
-     ↓
-What information can I maintain?
-     ↓
-Two pointers?
-Sliding window?
-HashMap?
-Something else?
-     ↓
-Algorithm in English
-     ↓
-Code
-```
+3. What makes a window invalid?
 
- That is the transition from **"I know Python"** to **"I can solve problems with Python."**
+4. How can you efficiently know the minimum temperature?
+
+5. How can you efficiently know the maximum temperature?
+
+6. How can you track how many times each temperature appears?
+
+7. What happens when one temperature appears too many times?
+
+8. Could removing one element make an invalid window valid?
+
+9. If the window becomes invalid, which pointer should move?
+
+10. When should you update the maximum answer?
+
+11. What information must be maintained while the window moves?
+
+12. Can you describe the complete algorithm in plain English
+    before writing code?
+
