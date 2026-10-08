@@ -600,68 +600,8 @@ a c b
 
 ---
 
- ## Think before coding
 
- This is your first real sliding-window problem.
 
- Don't code yet.
-
- Ask:
-
- 1. What exactly is a substring?
-2. What makes a window valid?
-3. What makes a window invalid?
-4. Could you represent the current substring using `left` and `right`?
-5. What should happen when you add a character that already exists?
-6. Which side of the window should move?
-7. What information should you maintain?
-8. Could a `set` help?
-9. When should you update the maximum length?
-10. Can you describe the algorithm without Python?
-
- Try to visualize:
-
-```
-a b c
-↑   ↑
-L   R
-```
-
- Then:
-
-```
-a b c a
-↑     ↑
-L     R
-```
-
- Invalid.
-
- So:
-
-```
-a b c a
-  ↑   ↑
-  L   R
-```
-
- Now the window is valid again.
-
----
-
- ## 🧠 Your key question
-
- Whenever you see:
-
- > **longest/shortest contiguous substring/subarray satisfying a condition**
-
- ask:
-
- > **"Can I maintain a window instead of checking every possible substring?"**
-
- That's the mental trigger I want you to develop.
-
----
 
  # Day 6 — Longest Repeating Character Replacement
 
@@ -796,25 +736,7 @@ A
 9. When the window becomes invalid, what should happen?
 10. When should you update the maximum answer?
 
- Try to derive:
 
-```
-window length
-      -
-most frequent character count
-      =
-characters that must be replaced
-```
-
- Then:
-
-```
-replacements <= k
-        ↓
-window valid
-```
-
----
 
 
  # Day 7 — Mixed Problem
