@@ -7,7 +7,7 @@ Solve 30 problems where I can explain the approach before writing the code.
 | Pattern | Problems | 🟢 Solved Alone | 🟡 Needed Hint | 🟠 Needed Guidance | 🔴 Needed Solution |
 |---|---|---|---|---|---|
 | Arrays | 7 | 5 | 1 | 1 | 0 |
-| Hashing | 0 | 0 | 0 | 0 | 0 |
+| Hashing | 7 | 6 | 1 | 0 | 0 |
 | Two Pointers | 0 | 0 | 0 | 0 | 0 |
 | Sliding Window | 0 | 0 | 0 | 0 | 0 |
 | Stack | 0 | 0 | 0 | 0 | 0 |
