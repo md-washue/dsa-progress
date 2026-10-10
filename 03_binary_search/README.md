@@ -1,5 +1,5 @@
 ### Problem 1
-solution.py
+[solution.py](./01_Basic_stack/problem_1_solution.py)
 
 ## 🧮 Real-life scenario: Document structure validation
 
@@ -127,7 +127,7 @@ Matching? ── Yes → Pop
 
 ### Problem 2
 
-solution.py
+[solution.py](./02_Stack_operations/problem_2_solution.py)
 
 ## 🌐 Real-life scenario: Browser navigation history
 
@@ -243,7 +243,7 @@ Return YouTube
 
 ### Problem 3
 
-solution.py
+[solution.py](./03_Monotonic_stack/problem_3_solution.py)
 
 ## 🌤️ Real-life scenario: Weather forecasting
 
@@ -353,7 +353,7 @@ Repeat until no longer warmer
 
 ### Problem 4
 
-solution.py
+[solution.py](./04_Basic_binary_search/problem_4_solution.py)
 
 ## 📦 Real-life scenario: Warehouse inventory lookup
 
@@ -467,7 +467,7 @@ Search remaining half
 
 ### Problem 5
 
-solution.py
+[solution.py](./05_Binary_search_boundaries/problem_5_solution.py\)
 
 ## 📅 Real-life scenario: Appointment scheduling
 
@@ -584,7 +584,7 @@ Search the left half
 
 ### Problem 6
 
-solution.py
+[solution.py](./06_Binary_search_on_answer/problem_6_solution.py)
 
 ## 🚚 Real-life scenario: Delivery truck capacity
 
@@ -700,7 +700,7 @@ Find the minimum valid capacity
 
 ### Problem 7
 
-solution.py
+[solution.py](./07_Mixed_pattern_recognition/problem_7_solution.py)
 
 ## 🏭 Real-life scenario: Warehouse temperature monitoring
 
