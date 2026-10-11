@@ -169,36 +169,6 @@ Ask yourself:
 
 > Which Python list operation adds an item to the end, and which operation removes the last item?
 
----
-
-## Think before coding
-
-1. What does each item in the history represent?
-2. Which page is the most recently visited?
-3. What should happen when the user presses Back?
-4. Why is removing the first item incorrect?
-5. Which stack operations would you use?
-6. What should happen when the history is empty?
-7. How would you support repeated Back operations?
-8. What is the time complexity of a single Back operation?
-9. How would you distinguish browser history from a normal queue?
-10. Can you explain the algorithm in plain English?
-
-Try to discover:
-
-```
-Visit Google
-     ↓
-Visit YouTube
-     ↓
-Visit GitHub
-     ↓
-Press Back
-     ↓
-Remove GitHub
-     ↓
-Return YouTube
-```
 
 ---
 
