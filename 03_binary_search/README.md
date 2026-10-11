@@ -84,44 +84,7 @@ The most recently opened bracket must be closed first.
 
 This is the same principle used by a **stack**.
 
----
 
-## Think before coding
-
-Don't write Python yet.
-
-Answer:
-
-1. What would a brute-force approach try to do?
-2. Why isn't counting opening and closing brackets enough?
-3. What information should you store when you encounter an opening bracket?
-4. When you encounter a closing bracket, what should you check?
-5. Why must the most recently opened bracket be checked first?
-6. What should happen if a closing bracket appears when the stack is empty?
-7. What should happen if the stack still contains brackets at the end?
-8. Which Python list operations could implement a stack?
-9. When should the function return `False`?
-10. What is the time and space complexity?
-
-Try to discover:
-
-```
-Opening bracket
-       ↓
-Push onto stack
-       ↓
-Closing bracket
-       ↓
-Check the top of stack
-       ↓
-Matching? ── Yes → Pop
-       │
-       No
-       ↓
-     Invalid
-```
-
----
 
 # Day 2 — Browser Back Button
 
