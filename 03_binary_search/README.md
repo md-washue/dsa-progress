@@ -400,7 +400,7 @@ Search remaining half
 
 ### Problem 5
 
-[solution.py](./05_Binary_search_boundaries/problem_5_solution.py\)
+[solution.py](./05_Binary_search_boundaries/problem_5_solution.py)
 
 ## 📅 Real-life scenario: Appointment scheduling
 
@@ -468,50 +468,6 @@ Expected:
 0
 ```
 
----
-
-## ⚠️ Important clue
-
-This is not simply a question of finding a value.
-
-You need to find the **boundary** between unavailable and available slots.
-
-```
-False False False True True True
-                  ↑
-           First available
-```
-
-Because the values follow a predictable order, binary search can help you locate that boundary efficiently.
-
----
-
-## Think before coding
-
-1. What would a linear search do?
-2. What makes the array suitable for binary search?
-3. If the middle slot is available, could an earlier available slot still exist?
-4. If the middle slot is unavailable, what can you conclude about earlier slots?
-5. Should you immediately return when you find `True`?
-6. How can you continue searching for an earlier available slot?
-7. What should you return if no available slot exists?
-8. How can you handle the case where the first slot is available?
-9. What is the time complexity?
-10. How is finding a boundary different from finding any matching value?
-
-Try to discover:
-
-```
-False False False True True True
-                  ↑
-              Available
-
-Could there be an earlier True?
-          ↓
-Search the left half
-```
-
----
 
 # Day 6 — Minimum Delivery Capacity
 
