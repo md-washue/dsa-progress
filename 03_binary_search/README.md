@@ -2,6 +2,8 @@
 [solution.py](./01_Basic_stack/problem_1_solution.py)
 
 ## 🧮 Real-life scenario: Document structure validation
+This question is not part of binary search
+
 
 You're building a document editor that checks whether brackets in a document are correctly opened and closed.
 
@@ -93,6 +95,7 @@ This is the same principle used by a **stack**.
 [solution.py](./02_Stack_operations/problem_2_solution.py)
 
 ## 🌐 Real-life scenario: Browser navigation history
+This question is not part of binary search
 
 You're building a simple browser that records the websites a user visits.
 
@@ -179,6 +182,7 @@ Ask yourself:
 [solution.py](./03_Monotonic_stack/problem_3_solution.py)
 
 ## 🌤️ Real-life scenario: Weather forecasting
+This question is not part of binary search
 
 You're building a weather application that records the daily temperature.
 
