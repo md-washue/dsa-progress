@@ -678,23 +678,3 @@ The first is suitable for a **monotonic stack**.
 The second cannot use ordinary binary search on the original unsorted list. You must reason about how to find the earliest qualifying position without assuming sorted order.
 
 ---
-
-## Think before coding
-
-Don't write Python yet.
-
-Answer these questions first:
-
-1. What does each output index represent?
-2. Which task requires remembering unresolved earlier temperatures?
-3. How can a monotonic stack avoid repeatedly scanning future temperatures?
-4. Why can't ordinary binary search be applied directly to the unsorted list?
-5. Could you find the earliest qualifying index by scanning from left to right?
-6. What is the time complexity of that straightforward approach?
-7. Could you sort the temperatures first? Would that preserve the original earliest index?
-8. What information must you maintain to preserve the original order?
-9. Which problem can be solved in `O(n)` time using a stack?
-10. Can you identify the correct technique for each task before writing any code?
-
----
-
