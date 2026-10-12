@@ -15,8 +15,6 @@
 #     # return(available_index)
 # slots = [False, False,True, False]
 # print(first_available_slot(slots))
-
-
 # binary search
 
 def first_available_slot(slots):
@@ -38,7 +36,7 @@ def first_available_slot(slots):
 
 # slots = [False, False, False, True, True, True]
 # slots = [True, True, True]
-# slots = [False, False, False, False]
+slots = [False, False, False, False]
 
 
 print(first_available_slot(slots))
