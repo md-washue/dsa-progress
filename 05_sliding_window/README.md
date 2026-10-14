@@ -18,10 +18,9 @@ python
 sales = [120, 200, 150, 300, 250, 100, 180, 400]
 k = 3
 
-# Output: 730
-# Days with sales 250, 100, 180, 400?
-# Best 3-day window: 100, 180, 400 = 680
-# Actual best: 300, 250, 100 = 650
+# Output: 700
+# Best 3-day window: [150, 300, 250]
+# Maximum total sales: 150 + 300 + 250 = 700
 ```
 
 Requirements
