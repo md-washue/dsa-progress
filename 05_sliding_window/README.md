@@ -31,7 +31,7 @@ Requirements
 
 Hint: Calculate the first window's sum, then subtract the outgoing value and add the incoming value.
 
-# Day 2- Chronotrope incompetentie: als je hartslag niet goed stijgt bij inspanning - Mens & Gezondheid
+# Day 2- Chronotropic incompetence: when your heart rate does not rise adequately during exertion – People & Health
 
 ## 2. Longest Healthy Activity Period
 
