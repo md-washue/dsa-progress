@@ -1,5 +1,3 @@
-Writing
-
 # Day 1 — Finding Two Students Who Match a Target Score
 
 ### Problem 1
