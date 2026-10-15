@@ -1,10 +1,10 @@
 # def longest_valid(products,k):
-#     new_array=[]
+#     new_list=[]
 
 #     i=0
 #     for i in range(len(products)):
-#         new_array.append(products[i])
-#         for j in range(len(new_array)):
+#         new_list.append(products[i])
+#         for j in range(len(new_list)):
 
         
     
@@ -13,18 +13,18 @@
 #     ...
 
 # def longest_valid(products,k):
-#     new_array=[]
+#     new_list=[]
 #     i=0
 #     for i in range(len(products)):
-#         if(len(new_array)<k):
-#             if products[i] not in new_array:
-#                 new_array.append(products[i])
+#         if(len(new_list)<k):
+#             if products[i] not in new_list:
+#                 new_list.append(products[i])
            
 #         else:
-#             if products[i] in new_array:
-#                 new_array.append(products[i])
+#             if products[i] in new_list:
+#                 new_list.append(products[i])
 
-#     return new_array
+#     return new_list
 
 
 # products = ["shoe", "bag", "shoe", "hat", "bag", "bag"]

@@ -3,13 +3,13 @@ def finding_duplicate(logins,k):
     
     for i in range (len(logins)):
         window=logins[i:i+k]
-        new_array=[]
+        new_list=[]
         for j in window:
-            if j in new_array:
+            if j in new_list:
                 return True
-                # new_array.append(j)
+                # new_list.append(j)
             else:
-                new_array.append(j)
+                new_list.append(j)
 
     return False
             
