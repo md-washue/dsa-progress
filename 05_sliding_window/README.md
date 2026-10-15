@@ -81,11 +81,10 @@ python
 products = ["shoe", "bag", "shoe", "hat", "bag", "bag"]
 k = 2
 
-# Output: 4
-# ["shoe", "hat", "bag", "bag"] is invalid:
-# it contains 3 distinct categories.
-# ["hat", "bag", "bag"] is valid, length 3.
-# Best valid window: ["shoe", "bag", "shoe"] = 3
+# Output: 3
+# Longest valid windows:
+# ["shoe", "bag", "shoe"] = 3
+# ["hat", "bag", "bag"] = 3
 ```
 
 Requirements
