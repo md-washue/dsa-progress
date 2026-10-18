@@ -221,30 +221,3 @@ Requirements
 
 Hint: A window is valid when `window_length - max_frequency <= k`. Decide how to maintain `max_frequency` efficiently as the window moves.
 
-## Coverage checklist
-
-These seven problems cover the major sliding window techniques you'll encounter in interviews.
-
-| Problem | Core technique | Main skill |
-| --- | --- | --- |
-| 1 | Fixed-size window | Running sum |
-| 2 | Variable-size window | Expand and shrink |
-| 3 | Variable-size window | Frequency dictionary |
-| 4 | Fixed-size window | Set and duplicate detection |
-| 5 | Minimum-size window | Optimize window length |
-| 6 | Fixed-size string window | Character frequencies |
-| 7 | Variable-size string window | Frequency optimization |
-
-## How to practice
-
-For each problem, follow this routine:
-
-1. Brute force first. Write the simplest correct solution, even if it's $O(n^2)$.
-2. Identify the window. Decide what enters, what leaves, and what makes the window valid.
-3. Optimize. Aim for $O(n)$ time whenever possible.
-4. Test edge cases. Try empty input, one element, repeated values, and the smallest valid window.
-5. Explain your solution. Be able to explain why moving the left pointer never skips a better answer.
-
-One important distinction: the sum-based variable-window problems above assume non-negative or positive numbers. With arbitrary negative numbers, the same shrinking-window logic is not generally valid.
-
-My recommendation: Solve these in order, without looking up solutions. Start with Question 1 and move on only when you can explain both the code and its time complexity.
